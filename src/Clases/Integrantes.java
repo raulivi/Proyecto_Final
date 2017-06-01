@@ -1,7 +1,7 @@
 
 package Clases;
 
-
+//Por favor añadir su nombre y carnet
 public class Integrantes {
     String Integrante1="";
     String Carnet1="";
