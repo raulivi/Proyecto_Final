@@ -10,14 +10,14 @@ public class Vehiculos {
     private String capacidad;
     private String placa;
     private String chasis;
-    private String visitataller;
+    private String visitaTaller;
     private String diagnostico;
     private String estado;
 
     public Vehiculos() {
     }
 
-    public Vehiculos(int id, int año, String modelo, String tipo, String capacidad, String placa, String chasis, String visitataller, String diagnostico, String estado) {
+    public Vehiculos(int id, int año, String modelo, String tipo, String capacidad, String placa, String chasis, String visitaTaller, String diagnostico, String estado) {
         this.id = id;
         this.año = año;
         this.modelo = modelo;
@@ -25,11 +25,11 @@ public class Vehiculos {
         this.capacidad = capacidad;
         this.placa = placa;
         this.chasis = chasis;
-        this.visitataller = visitataller;
+        this.visitaTaller = visitaTaller;
         this.diagnostico = diagnostico;
         this.estado = estado;
     }
-
+    
     public String getEstado() {
         return estado;
     }
@@ -94,20 +94,20 @@ public class Vehiculos {
         this.chasis = chasis;
     }
 
-    public String getVisitataller() {
-        return visitataller;
-    }
-
-    public void setVisitataller(String visitataller) {
-        this.visitataller = visitataller;
-    }
-
     public String getDiagnostico() {
         return diagnostico;
     }
 
     public void setDiagnostico(String diagnostico) {
         this.diagnostico = diagnostico;
+    }
+
+    public String getVisitaTaller() {
+        return visitaTaller;
+    }
+
+    public void setVisitaTaller(String visitaTaller) {
+        this.visitaTaller = visitaTaller;
     }
     
     
