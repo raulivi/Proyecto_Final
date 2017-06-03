@@ -4,6 +4,7 @@ package Clases;
 public class Rutas {
     
     private int id;
+    private int codigoCliente;
     private String fechaSalida;
     private String origen;
     private double cargaEstimada;
@@ -16,8 +17,9 @@ public class Rutas {
     public Rutas() {
     }
 
-    public Rutas(int id, String fechaSalida, String origen, double cargaEstimada, int idVehiculo, int codigoMotorista, double kilometraje, String destino, String fechaLlegada) {
+    public Rutas(int id, int codigoCliente, String fechaSalida, String origen, double cargaEstimada, int idVehiculo, int codigoMotorista, double kilometraje, String destino, String fechaLlegada) {
         this.id = id;
+        this.codigoCliente = codigoCliente;
         this.fechaSalida = fechaSalida;
         this.origen = origen;
         this.cargaEstimada = cargaEstimada;
@@ -98,6 +100,14 @@ public class Rutas {
 
     public void setDestino(String destino) {
         this.destino = destino;
+    }
+
+    public int getCodigoCliente() {
+        return codigoCliente;
+    }
+
+    public void setCodigoCliente(int codigoCliente) {
+        this.codigoCliente = codigoCliente;
     }
     
     
