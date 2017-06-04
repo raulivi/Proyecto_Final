@@ -4,6 +4,7 @@ package Vistas;
 import Clases.Cliente;
 import Clases.Database;
 import Clases.Operaciones;
+import java.awt.BorderLayout;
 import java.util.ArrayList;
 
 import javax.swing.table.DefaultTableModel;
