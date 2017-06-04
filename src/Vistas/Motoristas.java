@@ -62,7 +62,7 @@ public class Motoristas extends javax.swing.JFrame {
         btnSeleccionar.setText("Seleccionar y Volver");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel1.setText("Listado de Motoristas Contratados por la Empresa");
+        jLabel1.setText("Seleccione desde la lista de Motoristas Contratados por la Empresa");
 
         TablaM.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
