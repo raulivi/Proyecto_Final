@@ -42,8 +42,17 @@ public class Empleado {
         return renta;
     }
 
-    public void setRenta(double renta) {
-        this.renta = renta;
+    public void setRenta() {
+        double vrenta=0;
+        double salario=this.salarioBase;
+        if (salario>=472.01 && salario<895.25) {
+            vrenta=salario*0.1;
+        }else if (salario>=895.25 && salario<2038.11) {
+            vrenta=salario*0.2;
+        } else if (salario>=2038.11 ) {
+            vrenta=salario*0.3;
+        }
+        this.renta = vrenta;
     }
 
     public int getCodigo() {
@@ -93,9 +102,7 @@ public class Empleado {
     public void setEstadoCivil(String estadoCivil) {
         this.estadoCivil = estadoCivil;
     }
-
     
-
     public String getFechaIngreso() {
         return fechaIngreso;
     }
@@ -108,24 +115,30 @@ public class Empleado {
         return isss;
     }
 
-    public void setIsss(double isss) {
-        this.isss = isss;
+    public void setIsss() {
+        double salario=this.salarioBase;
+        double visss = salario*0.03;
+        this.isss = visss;
     }
 
     public double getAfp() {
         return afp;
     }
 
-    public void setAfp(double afp) {
-        this.afp = afp;
+    public void setAfp() {
+        double salario=this.salarioBase;
+        double vafp=salario*0.07;
+        this.afp = vafp;
     }
 
     public double getSalarioNeto() {
         return salarioNeto;
     }
 
-    public void setSalarioNeto(double salarioNeto) {
-        this.salarioNeto = salarioNeto;
+    public void setSalarioNeto() {
+        double salario=this.salarioBase;
+        double salarioN = salario-(this.afp+this.isss+this.renta);
+        this.salarioNeto = salarioN;
     }
 
     public String getCargo() {
@@ -143,7 +156,5 @@ public class Empleado {
     public void setSalarioBase(double salarioBase) {
         this.salarioBase = salarioBase;
     }
-            
-            
     
 }
