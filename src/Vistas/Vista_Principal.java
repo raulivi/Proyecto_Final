@@ -1,6 +1,9 @@
 
 package Vistas;
 
+import java.awt.Color;
+import javax.swing.JDialog;
+
 public class Vista_Principal extends javax.swing.JFrame {
     
     public String sesion="";
@@ -32,6 +35,7 @@ public class Vista_Principal extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         menuMantenimiento = new javax.swing.JMenuItem();
+        menuRutas = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
 
@@ -69,7 +73,16 @@ public class Vista_Principal extends javax.swing.JFrame {
 
         menuMantenimiento.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_MASK));
         menuMantenimiento.setText("Mantenimiento a Usuarios");
+        menuMantenimiento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuMantenimientoActionPerformed(evt);
+            }
+        });
         jMenu1.add(menuMantenimiento);
+
+        menuRutas.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_MASK));
+        menuRutas.setText("Mantenimiento de Rutas");
+        jMenu1.add(menuRutas);
 
         jMenuBar1.add(jMenu1);
 
@@ -113,13 +126,24 @@ public class Vista_Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        saludo();
+        if (this.nombre.equals("")) {
+        lbSaludo.setVisible(false);
+        } else{
+        saludo();        
+        }
         if (sesion.equals("2")) {
-            menuMantenimiento.setVisible(false);
+        menuMantenimiento.setVisible(false);
         }else if (sesion.equals("1")) {
             menuMantenimiento.setVisible(true);
         }
     }//GEN-LAST:event_formWindowOpened
+
+    private void menuMantenimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuMantenimientoActionPerformed
+        Mantenimiento_Usuarios mu = new Mantenimiento_Usuarios();
+        mu.setLocationRelativeTo(null);
+        mu.setVisible(true);
+        this. setEnabled(false);
+    }//GEN-LAST:event_menuMantenimientoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -164,5 +188,6 @@ public class Vista_Principal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbSaludo;
     private javax.swing.JMenuItem menuMantenimiento;
+    private javax.swing.JMenuItem menuRutas;
     // End of variables declaration//GEN-END:variables
 }

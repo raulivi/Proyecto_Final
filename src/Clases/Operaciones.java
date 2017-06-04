@@ -48,8 +48,8 @@ public class Operaciones {
                 //sql="insert into DOCENTES values("+d.getCodigo()+",'"+d.getNombre()+"','"+d.getDui()+"','"+d.getTelefono()+"',"+d.getSalario()+",'"+d.getCargo()+"')";
             break;
             case "usuarios":
-                //Users u= (Users) obj;
-                //sql="insert into users values("+u.getId()+",'"+u.getUsername()+"','"+u.getPasss()+"',"+u.getNivel()+")";
+                Usuarios u= (Usuarios) obj;
+                sql="INSERT INTO usuarios VALUES ("+u.getCodigoEmpleado()+", '"+u.getUsername()+"', '"+u.getPassword()+"', '"+u.getCargo()+"', '"+u.getDepartamento()+"', "+u.getNivel()+")";
             break;
             case "rutas":
                 //Users u= (Users) obj;
@@ -69,8 +69,63 @@ public class Operaciones {
             pst.executeUpdate();
             return true;
         } catch (SQLException | ClassNotFoundException e) { 
-            JOptionPane.showMessageDialog(null, e.getMessage());//mensaje
-
+            JOptionPane.showMessageDialog(null, e.getMessage());
+            return false;
+        }
+    }
+    
+    public boolean modificar(Object obj,String tabla) throws ClassNotFoundException{
+        Connection con;
+        PreparedStatement pst;
+        String sql="";
+        switch(tabla){
+            case "cliente":
+                Cliente c=(Cliente)obj;
+                //sql="INSERT INTO cliente VALUES ("+c.getCodigo()+", '"+c.getNombre()+"', '"+c.getId()+"', '"+c.getTipoId()+"', '"+c.getTelefono()+"', '"+c.getDireccion()+"')";
+            break;
+            case "empleado":
+                //Docentes d=(Docentes)obj;
+                //sql="insert into DOCENTES values("+d.getCodigo()+",'"+d.getNombre()+"','"+d.getDui()+"','"+d.getTelefono()+"',"+d.getSalario()+",'"+d.getCargo()+"')";
+            break;
+            case "usuarios":
+                Usuarios u= (Usuarios) obj;
+                //sql="INSERT INTO usuarios VALUES ("+u.getCodigoEmpleado()+", '"+u.getUsername()+"', '"+u.getPassword()+"', '"+u.getCargo()+"', '"+u.getDepartamento()+"', "+u.getNivel()+")";
+            break;
+            case "rutas":
+                //Users u= (Users) obj;
+                //sql="insert into users values("+u.getId()+",'"+u.getUsername()+"','"+u.getPasss()+"',"+u.getNivel()+")";
+            break;
+            case "vehiculo":
+                //Users u= (Users) obj;
+                //sql="insert into users values("+u.getId()+",'"+u.getUsername()+"','"+u.getPasss()+"',"+u.getNivel()+")";
+            break;
+            default:
+            break;
+        }
+        try {
+            Class.forName(db.getDriver());
+            con = DriverManager.getConnection(db.getUrl(),db.getUsuario(),db.getContraseña());
+            pst=con.prepareStatement(sql);
+            pst.executeUpdate();
+            return true;
+        } catch (SQLException | ClassNotFoundException e) { 
+            JOptionPane.showMessageDialog(null, e.getMessage());
+            return false;
+        }
+    }
+    
+    public boolean eliminar(String tabla, String campo, String valor) throws ClassNotFoundException{
+        Connection con;
+        PreparedStatement pst;
+        String sql="delete from "+tabla+" where "+campo+"="+valor;
+        try {
+            Class.forName(db.getDriver());
+            con = DriverManager.getConnection(db.getUrl(),db.getUsuario(),db.getContraseña());
+            pst=con.prepareStatement(sql);
+            pst.executeUpdate();
+            return true;
+        } catch (SQLException | ClassNotFoundException e) { 
+            JOptionPane.showMessageDialog(null, e.getMessage());
             return false;
         }
     }
