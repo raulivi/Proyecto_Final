@@ -34,5 +34,45 @@ public class Operaciones {
         return datos;
     }
     
+    public boolean insertar(Object obj,String tabla){
+        Connection con;
+        PreparedStatement pst;
+        String sql="";
+        switch(tabla){
+            case "cliente":
+                Cliente c=(Cliente)obj;
+                sql="INSERT INTO cliente VALUES ("+c.getCodigo()+", '"+c.getNombre()+"', '"+c.getId()+"', '"+c.getTipoId()+"', '"+c.getTelefono()+"', '"+c.getDireccion()+"')";
+            break;
+            case "empleado":
+                //Docentes d=(Docentes)obj;
+                //sql="insert into DOCENTES values("+d.getCodigo()+",'"+d.getNombre()+"','"+d.getDui()+"','"+d.getTelefono()+"',"+d.getSalario()+",'"+d.getCargo()+"')";
+            break;
+            case "usuarios":
+                //Users u= (Users) obj;
+                //sql="insert into users values("+u.getId()+",'"+u.getUsername()+"','"+u.getPasss()+"',"+u.getNivel()+")";
+            break;
+            case "rutas":
+                //Users u= (Users) obj;
+                //sql="insert into users values("+u.getId()+",'"+u.getUsername()+"','"+u.getPasss()+"',"+u.getNivel()+")";
+            break;
+            case "vehiculo":
+                //Users u= (Users) obj;
+                //sql="insert into users values("+u.getId()+",'"+u.getUsername()+"','"+u.getPasss()+"',"+u.getNivel()+")";
+            break;
+            default:
+            break;
+        }
+        try {
+            Class.forName(db.getDriver());
+            con = DriverManager.getConnection(db.getUrl(),db.getUsuario(),db.getContraseña());
+            pst=con.prepareStatement(sql);
+            pst.executeUpdate();
+            return true;
+        } catch (SQLException | ClassNotFoundException e) { 
+            JOptionPane.showMessageDialog(null, e.getMessage());//mensaje
+
+            return false;
+        }
+    }
     
 }

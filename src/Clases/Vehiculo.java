@@ -1,7 +1,7 @@
 
 package Clases;
 
-public class Vehiculos {
+public class Vehiculo {
     
     private int id;
     private int año;
@@ -14,10 +14,10 @@ public class Vehiculos {
     private String diagnostico;
     private String estado;
 
-    public Vehiculos() {
+    public Vehiculo() {
     }
 
-    public Vehiculos(int id, int año, String modelo, String tipo, String capacidad, String placa, String chasis, String visitaTaller, String diagnostico, String estado) {
+    public Vehiculo(int id, int año, String modelo, String tipo, String capacidad, String placa, String chasis, String visitaTaller, String diagnostico, String estado) {
         this.id = id;
         this.año = año;
         this.modelo = modelo;

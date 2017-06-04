@@ -5,6 +5,7 @@ import Clases.Cliente;
 import Clases.Database;
 import Clases.Operaciones;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class NuevoCliente extends javax.swing.JFrame {
@@ -215,6 +216,7 @@ public class NuevoCliente extends javax.swing.JFrame {
 
     private void btnCancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelarMouseClicked
         Clientes vc = new Clientes();
+        vc.setLocationRelativeTo(null);
         vc.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnCancelarMouseClicked
@@ -223,6 +225,20 @@ public class NuevoCliente extends javax.swing.JFrame {
         Cliente c = new Cliente();
         c.setCodigo(Integer.parseInt(txtCodigo.getText()));
         c.setNombre(txtNombre.getText());
+        c.setId(txtID.getText());
+        c.setTipoId(cbTipo.getSelectedItem().toString());
+        c.setTelefono(txtTelefono.getText());
+        c.setDireccion(txtDireccion.getText());
+        if (op.insertar(c, "cliente")) {
+            JOptionPane.showMessageDialog(this, "Insertado con Exito", "TituloV", JOptionPane.INFORMATION_MESSAGE);
+            Clientes vc = new Clientes();
+            vc.setLocationRelativeTo(null);
+            vc.setVisible(true);
+            this.dispose();
+        }else{
+            JOptionPane.showMessageDialog(this, "Error al Insertar", "TituloV", JOptionPane.ERROR_MESSAGE);
+        }
+        
     }//GEN-LAST:event_btnAgregarMouseClicked
 
     /**
