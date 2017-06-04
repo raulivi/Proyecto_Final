@@ -9,28 +9,34 @@ public class Empleado {
     private String dui;
     private String licencia;
     private String estadoCivil;
-    private double salario;
+    private double salarioBase;
     private String fechaIngreso;
     private double isss;
     private double afp;
     private double renta;
+    private double salarioNeto;
+    private String cargo;
 
     public Empleado() {
     }
 
-    public Empleado(int codigo, String nombre, String apellido, String dui, String licencia, String estadoCivil, double salario, String fechaIngreso, double isss, double afp, double renta) {
+    public Empleado(int codigo, String nombre, String apellido, String dui, String licencia, String estadoCivil, double salarioBase, String fechaIngreso, double isss, double afp, double renta, double salarioNeto, String cargo) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.apellido = apellido;
         this.dui = dui;
         this.licencia = licencia;
         this.estadoCivil = estadoCivil;
-        this.salario = salario;
+        this.salarioBase = salarioBase;
         this.fechaIngreso = fechaIngreso;
         this.isss = isss;
         this.afp = afp;
         this.renta = renta;
+        this.salarioNeto = salarioNeto;
+        this.cargo = cargo;
     }
+
+   
 
     public double getRenta() {
         return renta;
@@ -88,13 +94,7 @@ public class Empleado {
         this.estadoCivil = estadoCivil;
     }
 
-    public double getSalario() {
-        return salario;
-    }
-
-    public void setSalario(double salario) {
-        this.salario = salario;
-    }
+    
 
     public String getFechaIngreso() {
         return fechaIngreso;
@@ -118,6 +118,30 @@ public class Empleado {
 
     public void setAfp(double afp) {
         this.afp = afp;
+    }
+
+    public double getSalarioNeto() {
+        return salarioNeto;
+    }
+
+    public void setSalarioNeto(double salarioNeto) {
+        this.salarioNeto = salarioNeto;
+    }
+
+    public String getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
+    }
+
+    public double getSalarioBase() {
+        return salarioBase;
+    }
+
+    public void setSalarioBase(double salarioBase) {
+        this.salarioBase = salarioBase;
     }
             
             
