@@ -80,8 +80,8 @@ public class Operaciones {
         String sql="";
         switch(tabla){
             case "cliente":
-                Cliente c=(Cliente)obj;
-                //sql="INSERT INTO cliente VALUES ("+c.getCodigo()+", '"+c.getNombre()+"', '"+c.getId()+"', '"+c.getTipoId()+"', '"+c.getTelefono()+"', '"+c.getDireccion()+"')";
+                Cliente c = (Cliente)obj;
+                sql="UPDATE cliente SET nombre='"+c.getNombre()+"', id='"+c.getId()+"', tipo_id='"+c.getTipoId()+"', telefono='"+c.getTelefono()+"', direccion='"+c.getDireccion()+"' WHERE codigo="+c.getCodigo();
             break;
             case "empleado":
                 //Docentes d=(Docentes)obj;
@@ -89,7 +89,7 @@ public class Operaciones {
             break;
             case "usuarios":
                 Usuarios u= (Usuarios) obj;
-                //sql="INSERT INTO usuarios VALUES ("+u.getCodigoEmpleado()+", '"+u.getUsername()+"', '"+u.getPassword()+"', '"+u.getCargo()+"', '"+u.getDepartamento()+"', "+u.getNivel()+")";
+                sql="UPDATE usuarios SET username='"+u.getUsername()+"', pass='"+u.getPassword()+"', cargo='"+u.getCargo()+"', area ='"+u.getDepartamento()+"', nivel="+u.getNivel()+" WHERE codigo ="+u.getCodigoEmpleado();
             break;
             case "rutas":
                 //Users u= (Users) obj;

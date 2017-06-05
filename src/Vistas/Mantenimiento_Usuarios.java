@@ -3,6 +3,10 @@ package Vistas;
 
 import Clases.Operaciones;
 import Clases.Usuarios;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -18,6 +22,30 @@ public class Mantenimiento_Usuarios extends javax.swing.JFrame {
      */
     public Mantenimiento_Usuarios() {
         initComponents();
+        ArrayList<Object[]> datos=op.consultar("usuarios");
+        model.setNumRows(0);
+        for (Object[] dato: datos) {
+            model.addRow(dato);
+        }
+        TablaU.setModel(model);
+    }
+    
+    public void cargar(){
+    ArrayList<Object[]> datos=op.consultar("usuarios");
+        model.setNumRows(0);
+        for (Object[] dato: datos) {
+            model.addRow(dato);
+        }
+        TablaU.setModel(model);
+    }
+    
+    public void limpiar(){
+        txtCodigo.setText("");
+        txtUsername.setText("");
+        txtPass.setText("");
+        txtCargo.setText("");
+        txtArea.setText("");
+        cbNivel.setSelectedIndex(0);
     }
 
     /**
@@ -69,6 +97,11 @@ public class Mantenimiento_Usuarios extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4", "Title 5", "Title 6"
             }
         ));
+        TablaU.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TablaUMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(TablaU);
 
         jLabel1.setText("Codigo");
@@ -212,7 +245,7 @@ public class Mantenimiento_Usuarios extends javax.swing.JFrame {
 
         menuSalir.setText("Salir");
 
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_ESCAPE, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_W, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItem1.setText("Cerrar");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -255,59 +288,66 @@ public class Mantenimiento_Usuarios extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void btnInsertarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInsertarMouseClicked
-        /*docen.setCodigo(Integer.parseInt(txtCodigo.getText()));
-        docen.setNombre(txtNombre.getText());
-        docen.setDui(txtDui.getText());
-        docen.setTelefono(txtTelefono.getText());
-        docen.setSalario(Double.parseDouble(txtSalario.getText()));
-        docen.setCargo(txtCargo.getText());
-        try {
-            if (op.insertar(docen, "docentes")) {
-                JOptionPane.showMessageDialog(this, "Insertado con Exito", "Informacion", JOptionPane.INFORMATION_MESSAGE);
-                cargar();
-                limpiar();
-            }else{
-                JOptionPane.showMessageDialog(this, "Error", "TituloV", JOptionPane.ERROR_MESSAGE);
-            }
-        } catch (ClassNotFoundException ex) {
-            JOptionPane.showMessageDialog(null, ex.getMessage());
-        }*/
+        us.setCodigoEmpleado(Integer.parseInt(txtCodigo.getText()));
+        us.setUsername(txtUsername.getText());
+        us.setPassword(txtPass.getText());
+        us.setCargo(txtCargo.getText());
+        us.setDepartamento(txtArea.getText());
+        us.setNivel(Integer.parseInt(cbNivel.getSelectedItem().toString()));
+        if (op.insertar(us, "usuarios")) {
+            JOptionPane.showMessageDialog(this, "Insertado con Exito", "Informacion", JOptionPane.INFORMATION_MESSAGE);
+            cargar();
+            limpiar();
+        }else{
+            JOptionPane.showMessageDialog(this, "Error", "Informacion", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnInsertarMouseClicked
 
     private void btnModificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModificarMouseClicked
-        /*docen.setCodigo(Integer.parseInt(txtCodigo.getText()));
-        docen.setNombre(txtNombre.getText());
-        docen.setDui(txtDui.getText());
-        docen.setTelefono(txtTelefono.getText());
-        docen.setSalario(Double.parseDouble(txtSalario.getText()));
-        docen.setCargo(txtCargo.getText());
+        us.setCodigoEmpleado(Integer.parseInt(txtCodigo.getText()));
+        us.setUsername(txtUsername.getText());
+        us.setPassword(txtPass.getText());
+        us.setCargo(txtCargo.getText());
+        us.setDepartamento(txtArea.getText());
+        us.setNivel(Integer.parseInt(cbNivel.getSelectedItem().toString()));
         try {
-            if (op.modificar(docen, "docentes")) {
+            if (op.modificar(us, "usuarios")) {
                 JOptionPane.showMessageDialog(this, "Modificado con Exito", "Informacion", JOptionPane.INFORMATION_MESSAGE);
                 cargar();
                 limpiar();
             }else{
-                JOptionPane.showMessageDialog(this, "Error", "TituloV", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Error", "Informacion", JOptionPane.ERROR_MESSAGE);
             }
         } catch (ClassNotFoundException ex) {
-            JOptionPane.showMessageDialog(null, ex.getMessage());
-        }*/
+            Logger.getLogger(Mantenimiento_Usuarios.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
     }//GEN-LAST:event_btnModificarMouseClicked
 
     private void btnEliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarMouseClicked
-        /*docen.setCodigo(Integer.parseInt(txtCodigo.getText()));
+        us.setCodigoEmpleado(Integer.parseInt(txtCodigo.getText()));
         try {
-            if (op.eliminar("docentes", "codigo", String.valueOf(docen.getCodigo()))){
+            if (op.eliminar("usuarios", "codigo", String.valueOf(us.getCodigoEmpleado()))){
                 JOptionPane.showMessageDialog(this, "Eliminado con Exito", "Informacion", JOptionPane.INFORMATION_MESSAGE);
                 cargar();
                 limpiar();
             }else{
-                JOptionPane.showMessageDialog(this, "Error", "TituloV", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Error", "Informacion", JOptionPane.ERROR_MESSAGE);
             }
         } catch (ClassNotFoundException ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage());
-        }*/
+        }
     }//GEN-LAST:event_btnEliminarMouseClicked
+
+    private void TablaUMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaUMouseClicked
+        txtCodigo.setText(TablaU.getValueAt(TablaU.getSelectedRow(),0).toString());
+        txtUsername.setText(TablaU.getValueAt(TablaU.getSelectedRow(),1).toString());
+        txtPass.setText(TablaU.getValueAt(TablaU.getSelectedRow(),2).toString());
+        txtCargo.setText(TablaU.getValueAt(TablaU.getSelectedRow(),3).toString());
+        txtArea.setText(TablaU.getValueAt(TablaU.getSelectedRow(),4).toString());
+        cbNivel.setSelectedItem(TablaU.getValueAt(TablaU.getSelectedRow(),5).toString());
+    }//GEN-LAST:event_TablaUMouseClicked
 
     /**
      * @param args the command line arguments
