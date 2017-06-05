@@ -56,8 +56,8 @@ public class Operaciones {
                 //sql="insert into users values("+u.getId()+",'"+u.getUsername()+"','"+u.getPasss()+"',"+u.getNivel()+")";
             break;
             case "vehiculo":
-                //Users u= (Users) obj;
-                //sql="insert into users values("+u.getId()+",'"+u.getUsername()+"','"+u.getPasss()+"',"+u.getNivel()+")";
+                Vehiculo v = (Vehiculo) obj;
+                sql="INSERT INTO vehiculo `diagnostico`, `disponible`) VALUES ("+v.getId()+", "+v.getAño()+", '"+v.getModelo()+"', '"+v.getTipo()+"', "+v.getCapacidad()+", '"+v.getPlaca()+"', '"+v.getChasis()+"', '"+v.getVisitaTaller()+"', '"+v.getDiagnostico()+"',"+v.getEstado()+")";
             break;
             default:
             break;
@@ -96,8 +96,8 @@ public class Operaciones {
                 //sql="insert into users values("+u.getId()+",'"+u.getUsername()+"','"+u.getPasss()+"',"+u.getNivel()+")";
             break;
             case "vehiculo":
-                //Users u= (Users) obj;
-                //sql="insert into users values("+u.getId()+",'"+u.getUsername()+"','"+u.getPasss()+"',"+u.getNivel()+")";
+                Vehiculo v =(Vehiculo) obj;
+                sql="UPDATE vehiculo SET año="+v.getAño()+", modelo='"+v.getModelo()+"', tipo='"+v.getTipo()+"', capacidad ="+v.getCapacidad()+", placa ='"+v.getPlaca()+"', chasis='"+v.getChasis()+"', ultima_revision='"+v.getVisitaTaller()+"', diagnostico='"+v.getDiagnostico()+"', disponible ="+v.getEstado()+" WHERE id="+v.getId();
             break;
             default:
             break;
