@@ -7,17 +7,17 @@ public class Vehiculo {
     private int año;
     private String modelo;
     private String tipo;
-    private String capacidad;
+    private double capacidad;
     private String placa;
     private String chasis;
     private String visitaTaller;
     private String diagnostico;
-    private String estado;
+    private int estado;
 
     public Vehiculo() {
     }
 
-    public Vehiculo(int id, int año, String modelo, String tipo, String capacidad, String placa, String chasis, String visitaTaller, String diagnostico, String estado) {
+    public Vehiculo(int id, int año, String modelo, String tipo, double capacidad, String placa, String chasis, String visitaTaller, String diagnostico, int estado) {
         this.id = id;
         this.año = año;
         this.modelo = modelo;
@@ -30,11 +30,11 @@ public class Vehiculo {
         this.estado = estado;
     }
     
-    public String getEstado() {
+    public int getEstado() {
         return estado;
     }
 
-    public void setEstado(String estado) {
+    public void setEstado(int estado) {
         this.estado = estado;
     }
 
@@ -70,11 +70,11 @@ public class Vehiculo {
         this.tipo = tipo;
     }
 
-    public String getCapacidad() {
+    public double getCapacidad() {
         return capacidad;
     }
 
-    public void setCapacidad(String capacidad) {
+    public void setCapacidad(double capacidad) {
         this.capacidad = capacidad;
     }
 
