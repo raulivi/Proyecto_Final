@@ -44,8 +44,8 @@ public class Operaciones {
                 sql="INSERT INTO cliente VALUES ("+c.getCodigo()+", '"+c.getNombre()+"', '"+c.getId()+"', '"+c.getTipoId()+"', '"+c.getTelefono()+"', '"+c.getDireccion()+"')";
             break;
             case "empleado":
-                //Docentes d=(Docentes)obj;
-                //sql="insert into DOCENTES values("+d.getCodigo()+",'"+d.getNombre()+"','"+d.getDui()+"','"+d.getTelefono()+"',"+d.getSalario()+",'"+d.getCargo()+"')";
+                Empleado e=(Empleado)obj;
+                sql="INSERT INTO empleado VALUES ("+e.getCodigo()+", '"+e.getNombre()+"', '"+e.getApellido()+"', '"+e.getDui()+"', '"+e.getLicencia()+"', '"+e.getFechaIngreso()+"', '"+e.getEstadoCivil()+"', "+e.getSalarioBase()+", "+e.getIsss()+", "+e.getAfp()+", "+e.getRenta()+", "+e.getSalarioNeto()+", '"+e.getCargo()+"');";
             break;
             case "usuarios":
                 Usuarios u= (Usuarios) obj;
@@ -84,8 +84,8 @@ public class Operaciones {
                 sql="UPDATE cliente SET nombre='"+c.getNombre()+"', id='"+c.getId()+"', tipo_id='"+c.getTipoId()+"', telefono='"+c.getTelefono()+"', direccion='"+c.getDireccion()+"' WHERE codigo="+c.getCodigo();
             break;
             case "empleado":
-                //Docentes d=(Docentes)obj;
-                //sql="insert into DOCENTES values("+d.getCodigo()+",'"+d.getNombre()+"','"+d.getDui()+"','"+d.getTelefono()+"',"+d.getSalario()+",'"+d.getCargo()+"')";
+                Empleado e =(Empleado)obj;
+                sql="UPDATE empleado SET nombre = '"+e.getNombre()+"', apellido = '"+e.getApellido()+"', dui = '"+e.getDui()+"', licencia = '"+e.getLicencia()+"', fecha_contratacion = '"+e.getFechaIngreso()+"', estado_civil = '"+e.getEstadoCivil()+"', salario_base = "+e.getSalarioBase()+", isss = "+e.getIsss()+", afp = "+e.getAfp()+", renta = "+e.getRenta()+", salario_neto = "+e.getSalarioNeto()+", cargo = '"+e.getCargo()+"' WHERE codigo = "+e.getCodigo();
             break;
             case "usuarios":
                 Usuarios u= (Usuarios) obj;

@@ -7,7 +7,7 @@ import Clases.Operaciones;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
-public class Motoristas extends javax.swing.JFrame {
+public class Seleccionar_Motoristas extends javax.swing.JFrame {
 
     String columns[]={"Codigo", "Nombre", "Apellido", "DUI", "Cargo"};
     DefaultTableModel model=new DefaultTableModel(columns, 0);
@@ -19,7 +19,7 @@ public class Motoristas extends javax.swing.JFrame {
     /**
      * Creates new form Motoristas
      */
-    public Motoristas() {
+    public Seleccionar_Motoristas() {
         initComponents();
         ArrayList<Object[]> datos=op.consultar("vmotoristas");
         model.setNumRows(0);
@@ -193,20 +193,21 @@ public class Motoristas extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Motoristas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Seleccionar_Motoristas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Motoristas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Seleccionar_Motoristas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Motoristas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Seleccionar_Motoristas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Motoristas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Seleccionar_Motoristas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Motoristas().setVisible(true);
+                new Seleccionar_Motoristas().setVisible(true);
             }
         });
     }

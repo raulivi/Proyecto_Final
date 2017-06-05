@@ -1,9 +1,6 @@
 
 package Vistas;
 
-import java.awt.Color;
-import javax.swing.JDialog;
-
 public class Vista_Principal extends javax.swing.JFrame {
     
     public String sesion="";
@@ -162,7 +159,7 @@ public class Vista_Principal extends javax.swing.JFrame {
         saludo();        
         }
         if (sesion.equals("2")) {
-        menuMantenimiento.setVisible(false);
+            menuMantenimiento.setVisible(false);
         }else if (sesion.equals("1")) {
             menuMantenimiento.setVisible(true);
         }

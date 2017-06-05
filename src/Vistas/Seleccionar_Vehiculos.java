@@ -7,7 +7,7 @@ import Clases.Vehiculo;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
-public class Vehiculos extends javax.swing.JFrame {
+public class Seleccionar_Vehiculos extends javax.swing.JFrame {
 
     String columns[]={"ID", "Modelo", "Tipo", "Capacidad en Kg"};
     DefaultTableModel model=new DefaultTableModel(columns, 0);
@@ -18,7 +18,7 @@ public class Vehiculos extends javax.swing.JFrame {
     /**
      * Creates new form Vehiculos
      */
-    public Vehiculos() {
+    public Seleccionar_Vehiculos() {
         initComponents();
         ArrayList<Object[]> datos=op.consultar("vvehiculo");
         model.setNumRows(0);
@@ -171,20 +171,21 @@ public class Vehiculos extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Vehiculos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Seleccionar_Vehiculos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Vehiculos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Seleccionar_Vehiculos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Vehiculos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Seleccionar_Vehiculos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Vehiculos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Seleccionar_Vehiculos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Vehiculos().setVisible(true);
+                new Seleccionar_Vehiculos().setVisible(true);
             }
         });
     }

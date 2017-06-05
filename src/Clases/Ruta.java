@@ -6,7 +6,6 @@ public class Ruta {
     private int id;
     private int codigoCliente;
     private String fechaSalida;
-    private String origen;
     private double cargaEstimada;
     private int idVehiculo;
     private int codigoMotorista;
@@ -17,11 +16,10 @@ public class Ruta {
     public Ruta() {
     }
 
-    public Ruta(int id, int codigoCliente, String fechaSalida, String origen, double cargaEstimada, int idVehiculo, int codigoMotorista, double kilometraje, String destino, String fechaLlegada) {
+    public Ruta(int id, int codigoCliente, String fechaSalida, double cargaEstimada, int idVehiculo, int codigoMotorista, double kilometraje, String destino, String fechaLlegada) {
         this.id = id;
         this.codigoCliente = codigoCliente;
         this.fechaSalida = fechaSalida;
-        this.origen = origen;
         this.cargaEstimada = cargaEstimada;
         this.idVehiculo = idVehiculo;
         this.codigoMotorista = codigoMotorista;
@@ -52,14 +50,6 @@ public class Ruta {
 
     public void setFechaSalida(String fechaSalida) {
         this.fechaSalida = fechaSalida;
-    }
-
-    public String getOrigen() {
-        return origen;
-    }
-
-    public void setOrigen(String origen) {
-        this.origen = origen;
     }
 
     public double getCargaEstimada() {
