@@ -34,8 +34,13 @@ public class Vista_Principal extends javax.swing.JFrame {
         lbSaludo = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        menuMantenimiento = new javax.swing.JMenuItem();
-        menuRutas = new javax.swing.JMenuItem();
+        menuMantenimiento = new javax.swing.JMenu();
+        mmtoUsuario = new javax.swing.JMenuItem();
+        mmtoVehiculo = new javax.swing.JMenuItem();
+        mmtoCliente = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
 
@@ -71,18 +76,43 @@ public class Vista_Principal extends javax.swing.JFrame {
 
         jMenu1.setText("Aplicaciones ");
 
-        menuMantenimiento.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_MASK));
-        menuMantenimiento.setText("Mantenimiento a Usuarios");
-        menuMantenimiento.addActionListener(new java.awt.event.ActionListener() {
+        menuMantenimiento.setText("Mantenimiento Administrativo");
+
+        mmtoUsuario.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_MASK));
+        mmtoUsuario.setText("Usuarios");
+        mmtoUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuMantenimientoActionPerformed(evt);
+                mmtoUsuarioActionPerformed(evt);
             }
         });
+        menuMantenimiento.add(mmtoUsuario);
+
+        mmtoVehiculo.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.CTRL_MASK));
+        mmtoVehiculo.setText("Vehiculos");
+        mmtoVehiculo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mmtoVehiculoActionPerformed(evt);
+            }
+        });
+        menuMantenimiento.add(mmtoVehiculo);
+
+        mmtoCliente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Y, java.awt.event.InputEvent.CTRL_MASK));
+        mmtoCliente.setText("Clientes");
+        menuMantenimiento.add(mmtoCliente);
+
+        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem3.setText("Empleados");
+        menuMantenimiento.add(jMenuItem3);
+
+        jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem4.setText("Rutas");
+        menuMantenimiento.add(jMenuItem4);
+
         jMenu1.add(menuMantenimiento);
 
-        menuRutas.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_MASK));
-        menuRutas.setText("Mantenimiento de Rutas");
-        jMenu1.add(menuRutas);
+        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem2.setText("Revision de Rutas");
+        jMenu1.add(jMenuItem2);
 
         jMenuBar1.add(jMenu1);
 
@@ -138,12 +168,16 @@ public class Vista_Principal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_formWindowOpened
 
-    private void menuMantenimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuMantenimientoActionPerformed
+    private void mmtoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mmtoUsuarioActionPerformed
         Mantenimiento_Usuarios mu = new Mantenimiento_Usuarios();
         mu.setLocationRelativeTo(null);
         mu.setVisible(true);
         this. setEnabled(false);
-    }//GEN-LAST:event_menuMantenimientoActionPerformed
+    }//GEN-LAST:event_mmtoUsuarioActionPerformed
+
+    private void mmtoVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mmtoVehiculoActionPerformed
+        
+    }//GEN-LAST:event_mmtoVehiculoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -185,9 +219,14 @@ public class Vista_Principal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbSaludo;
-    private javax.swing.JMenuItem menuMantenimiento;
-    private javax.swing.JMenuItem menuRutas;
+    private javax.swing.JMenu menuMantenimiento;
+    private javax.swing.JMenuItem mmtoCliente;
+    private javax.swing.JMenuItem mmtoUsuario;
+    private javax.swing.JMenuItem mmtoVehiculo;
     // End of variables declaration//GEN-END:variables
 }
