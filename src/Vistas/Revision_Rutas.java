@@ -16,6 +16,17 @@ public class Revision_Rutas extends javax.swing.JFrame {
     Operaciones op = new Operaciones();
     Ruta ru = new Ruta();
     
+    String d0ID="";
+    String d1Codigo="";
+    String d2Salida="";
+    String d3Carga="";
+    String d4Vehiculo="";
+    String d5Motorista="";
+    String d6Kilometraje="";
+    String d7Destino="";
+    String d8Llegada="";
+    
+    
     /**
      * Creates new form Revision_Rutas
      */
@@ -82,6 +93,9 @@ public class Revision_Rutas extends javax.swing.JFrame {
         txtdestino = new javax.swing.JTextField();
         btnInsertar = new javax.swing.JButton();
         btnModificar = new javax.swing.JButton();
+        btnbuscaCliente = new javax.swing.JButton();
+        btnbuscaVehiculo = new javax.swing.JButton();
+        btnbuscaMotorista = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuSalir = new javax.swing.JMenu();
         menuitemSalir = new javax.swing.JMenuItem();
@@ -89,6 +103,11 @@ public class Revision_Rutas extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 204, 255));
         setUndecorated(true);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 255));
 
@@ -142,6 +161,30 @@ public class Revision_Rutas extends javax.swing.JFrame {
             }
         });
 
+        btnbuscaCliente.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        btnbuscaCliente.setText("Buscar Cliente");
+        btnbuscaCliente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnbuscaClienteMouseClicked(evt);
+            }
+        });
+
+        btnbuscaVehiculo.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        btnbuscaVehiculo.setText("Buscar Vehiculo");
+        btnbuscaVehiculo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnbuscaVehiculoMouseClicked(evt);
+            }
+        });
+
+        btnbuscaMotorista.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        btnbuscaMotorista.setText("Buscar Motorista");
+        btnbuscaMotorista.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnbuscaMotoristaMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -151,9 +194,8 @@ public class Revision_Rutas extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 2, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -165,7 +207,7 @@ public class Revision_Rutas extends javax.swing.JFrame {
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addGap(10, 10, 10)
                                         .addComponent(jLabel2)))
-                                .addGap(18, 18, 18)
+                                .addGap(29, 29, 29)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtsalida, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -177,7 +219,16 @@ public class Revision_Rutas extends javax.swing.JFrame {
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addGap(23, 23, 23)
                                         .addComponent(jLabel4)))
-                                .addGap(18, 18, 18)
+                                .addGap(18, 18, 18))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                                .addComponent(btnbuscaCliente)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnbuscaVehiculo)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnbuscaMotorista)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtvehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -189,7 +240,7 @@ public class Revision_Rutas extends javax.swing.JFrame {
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addGap(10, 10, 10)
                                         .addComponent(jLabel6)))
-                                .addGap(18, 18, 18)
+                                .addGap(55, 55, 55)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtkilometraje, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -207,7 +258,8 @@ public class Revision_Rutas extends javax.swing.JFrame {
                                         .addGap(10, 10, 10)
                                         .addComponent(jLabel9))
                                     .addComponent(txtllegada, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(378, 378, 378)
                                 .addComponent(btnInsertar)
                                 .addGap(18, 18, 18)
                                 .addComponent(btnModificar)))))
@@ -240,11 +292,20 @@ public class Revision_Rutas extends javax.swing.JFrame {
                     .addComponent(jLabel7)
                     .addComponent(jLabel8)
                     .addComponent(jLabel9))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnInsertar)
-                    .addComponent(btnModificar))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnInsertar)
+                            .addComponent(btnModificar))
+                        .addContainerGap(22, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnbuscaCliente)
+                            .addComponent(btnbuscaVehiculo)
+                            .addComponent(btnbuscaMotorista))
+                        .addContainerGap())))
         );
 
         menuSalir.setText("Salir");
@@ -346,6 +407,100 @@ public class Revision_Rutas extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnModificarMouseClicked
 
+    public void escribir(){
+        d0ID=txtID.getText();
+        d1Codigo=txtCodigo.getText();
+        d2Salida= txtsalida.getText();
+        d3Carga=txtCarga.getText();
+        d4Vehiculo=txtvehiculo.getText();
+        d5Motorista=txtmotorista.getText();
+        d6Kilometraje=txtkilometraje.getText();
+        d7Destino=txtdestino.getText();
+        d8Llegada=txtllegada.getText(); 
+    }
+    
+    private void btnbuscaClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbuscaClienteMouseClicked
+    escribir();
+    Seleccionar_Clientes sc = new Seleccionar_Clientes();
+    sc.d0ID=d0ID;
+    sc.d1Codigo=d1Codigo;
+    sc.d2Salida=d2Salida;
+    sc.d3Carga=d3Carga;
+    sc.d4Vehiculo=d4Vehiculo;
+    sc.d5Motorista=d5Motorista;
+    sc.d6Kilometraje=d6Kilometraje;
+    sc.d7Destino=d7Destino;
+    sc.d8Llegada= d8Llegada;
+    sc.setLocationRelativeTo(null);
+    sc.setVisible(true);
+    this.dispose();
+    }//GEN-LAST:event_btnbuscaClienteMouseClicked
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        if (d0ID!="") {
+            txtID.setText(d0ID);
+        }
+        if (d1Codigo!="") {
+            txtCodigo.setText(d1Codigo);
+        }
+        if (d2Salida!="") {
+            txtsalida.setText(d2Salida);
+        }
+        if (d3Carga!="") {
+            txtCarga.setText(d3Carga);
+        }
+        if (d4Vehiculo!="") {
+            txtvehiculo.setText(d4Vehiculo);
+        }
+        if (d5Motorista!="") {
+            txtmotorista.setText(d5Motorista);
+        }
+        if (d6Kilometraje!="") {
+            txtkilometraje.setText(d6Kilometraje);
+        }
+        if (d7Destino!="") {
+            txtdestino.setText(d7Destino);
+        }
+        if (d8Llegada !="") {
+            txtllegada.setText(d8Llegada);
+        }
+    }//GEN-LAST:event_formWindowOpened
+
+    private void btnbuscaVehiculoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbuscaVehiculoMouseClicked
+        escribir();
+        Seleccionar_Vehiculos sv = new Seleccionar_Vehiculos();
+        sv.d0ID=d0ID;
+        sv.d1Codigo=d1Codigo;
+        sv.d2Salida=d2Salida;
+        sv.d3Carga=d3Carga;
+        sv.d4Vehiculo=d4Vehiculo;
+        sv.d5Motorista=d5Motorista;
+        sv.d6Kilometraje=d6Kilometraje;
+        sv.d7Destino=d7Destino;
+        sv.d8Llegada= d8Llegada;
+        sv.setLocationRelativeTo(null);
+        sv.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnbuscaVehiculoMouseClicked
+
+    private void btnbuscaMotoristaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbuscaMotoristaMouseClicked
+        escribir();
+        Seleccionar_Motoristas sm = new Seleccionar_Motoristas();
+        sm.d0ID=d0ID;
+        sm.d1Codigo=d1Codigo;
+        sm.d2Salida=d2Salida;
+        sm.d3Carga=d3Carga;
+        sm.d4Vehiculo=d4Vehiculo;
+        sm.d5Motorista=d5Motorista;
+        sm.d6Kilometraje=d6Kilometraje;
+        sm.d7Destino=d7Destino;
+        sm.d8Llegada= d8Llegada;
+        sm.setLocationRelativeTo(null);
+        sm.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnbuscaMotoristaMouseClicked
+
+    
     /**
      * @param args the command line arguments
      */
@@ -385,6 +540,9 @@ public class Revision_Rutas extends javax.swing.JFrame {
     private javax.swing.JTable TablaR;
     private javax.swing.JButton btnInsertar;
     private javax.swing.JButton btnModificar;
+    private javax.swing.JButton btnbuscaCliente;
+    private javax.swing.JButton btnbuscaMotorista;
+    private javax.swing.JButton btnbuscaVehiculo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

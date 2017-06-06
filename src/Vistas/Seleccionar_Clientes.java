@@ -219,7 +219,21 @@ public class Seleccionar_Clientes extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAgregarMouseClicked
 
     private void btnSeleccionarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSeleccionarMouseClicked
-        d0ID=txtCodigo.getText();
+        d1Codigo=txtCodigo.getText();
+        Revision_Rutas rv = new Revision_Rutas();
+        rv.d0ID=d0ID;
+        rv.d1Codigo=d1Codigo;
+        rv.d2Salida=d2Salida;
+        rv.d3Carga=d3Carga;
+        rv.d4Vehiculo=d4Vehiculo;
+        rv.d5Motorista=d5Motorista;
+        rv.d6Kilometraje=d6Kilometraje;
+        rv.d7Destino=d7Destino;
+        rv.d8Llegada= d8Llegada;
+        rv.setLocationRelativeTo(null);
+        rv.setVisible(true);
+        this.dispose();
+        
     }//GEN-LAST:event_btnSeleccionarMouseClicked
 
     /**

@@ -9,16 +9,15 @@ import javax.swing.table.DefaultTableModel;
 
 public class Seleccionar_Motoristas extends javax.swing.JFrame {
     
-    String dato0="";
-    String dato1="";
-    String dato2="";
-    String dato3="";
-    String dato4="";
-    String dato5="";
-    String dato6="";
-    String dato7="";
-    String dato8="";
-    String dato9="";
+    String d0ID="";
+    String d1Codigo="";
+    String d2Salida="";
+    String d3Carga="";
+    String d4Vehiculo="";
+    String d5Motorista="";
+    String d6Kilometraje="";
+    String d7Destino="";
+    String d8Llegada="";
 
     String columns[]={"Codigo", "Nombre", "Apellido", "DUI", "Cargo"};
     DefaultTableModel model=new DefaultTableModel(columns, 0);
@@ -71,6 +70,11 @@ public class Seleccionar_Motoristas extends javax.swing.JFrame {
         setResizable(false);
 
         btnSeleccionar.setText("Seleccionar y Volver");
+        btnSeleccionar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSeleccionarMouseClicked(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("Seleccione desde la lista de Motoristas Contratados por la Empresa");
@@ -180,12 +184,29 @@ public class Seleccionar_Motoristas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void TablaMMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaMMouseClicked
-    txtCodigo.setText(TablaM.getValueAt(TablaM.getSelectedRow(),0).toString());
+        txtCodigo.setText(TablaM.getValueAt(TablaM.getSelectedRow(),0).toString());
         txtNombre.setText(TablaM.getValueAt(TablaM.getSelectedRow(),1).toString());
         txtApellido.setText(TablaM.getValueAt(TablaM.getSelectedRow(),2).toString());
         txtDui.setText(TablaM.getValueAt(TablaM.getSelectedRow(),3).toString());
         txtCargo.setText(TablaM.getValueAt(TablaM.getSelectedRow(),4).toString());
     }//GEN-LAST:event_TablaMMouseClicked
+
+    private void btnSeleccionarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSeleccionarMouseClicked
+        d5Motorista=txtCodigo.getText();
+        Revision_Rutas rv = new Revision_Rutas();
+        rv.d0ID=d0ID;
+        rv.d1Codigo=d1Codigo;
+        rv.d2Salida=d2Salida;
+        rv.d3Carga=d3Carga;
+        rv.d4Vehiculo=d4Vehiculo;
+        rv.d5Motorista=d5Motorista;
+        rv.d6Kilometraje=d6Kilometraje;
+        rv.d7Destino=d7Destino;
+        rv.d8Llegada= d8Llegada;
+        rv.setLocationRelativeTo(null);
+        rv.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnSeleccionarMouseClicked
 
     /**
      * @param args the command line arguments
