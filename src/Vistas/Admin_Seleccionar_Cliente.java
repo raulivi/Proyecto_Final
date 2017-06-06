@@ -8,7 +8,8 @@ import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
 
-public class Seleccionar_Clientes extends javax.swing.JFrame {
+public class Admin_Seleccionar_Cliente extends javax.swing.JFrame {
+    
     String d0ID="";
     String d1Codigo="";
     String d2Salida="";
@@ -24,11 +25,11 @@ public class Seleccionar_Clientes extends javax.swing.JFrame {
     Database db = new Database();
     Cliente cli = new Cliente();
     Operaciones op = new Operaciones();
-    
+
     /**
-     * Creates new form Clientes
+     * Creates new form Admin_Seleccionar_Cliente
      */
-    public Seleccionar_Clientes() {
+    public Admin_Seleccionar_Cliente() {
         initComponents();
         ArrayList<Object[]> datos=op.consultar("cliente");
         model.setNumRows(0);
@@ -37,7 +38,6 @@ public class Seleccionar_Clientes extends javax.swing.JFrame {
         }
         TablaC.setModel(model);
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -48,28 +48,44 @@ public class Seleccionar_Clientes extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        TablaC = new javax.swing.JTable();
-        jLabel5 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        txtTipo = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         txtCodigo = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
         txtID = new javax.swing.JTextField();
         txtTelefono = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
         btnSeleccionar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        TablaC = new javax.swing.JTable();
         btnAgregar = new javax.swing.JButton();
         txtDireccion = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        txtTipo = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+
+        jLabel2.setText("Codigo");
+
+        jLabel3.setText("Nombre");
+
+        jLabel7.setText("Tipo de ID");
+
+        jLabel4.setText("ID");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("Seleccione desde la Lista de Clientes Registrados o Agregue un Nuevo Cliente");
+
+        btnSeleccionar.setText("Seleccionar y Volver");
+        btnSeleccionar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSeleccionarMouseClicked(evt);
+            }
+        });
 
         TablaC.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -89,21 +105,6 @@ public class Seleccionar_Clientes extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(TablaC);
 
-        jLabel5.setText("Telefono");
-
-        jLabel2.setText("Codigo");
-
-        jLabel3.setText("Nombre");
-
-        jLabel4.setText("ID");
-
-        btnSeleccionar.setText("Seleccionar y Volver");
-        btnSeleccionar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnSeleccionarMouseClicked(evt);
-            }
-        });
-
         btnAgregar.setText("Agregar Cliente Nuevo");
         btnAgregar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -111,9 +112,9 @@ public class Seleccionar_Clientes extends javax.swing.JFrame {
             }
         });
 
-        jLabel6.setText("Direccion");
+        jLabel5.setText("Telefono");
 
-        jLabel7.setText("Tipo de ID");
+        jLabel6.setText("Direccion");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -201,6 +202,24 @@ public class Seleccionar_Clientes extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnSeleccionarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSeleccionarMouseClicked
+        d1Codigo=txtCodigo.getText();
+        Mantenimiento_Rutas mr = new Mantenimiento_Rutas();
+        mr.d0ID=d0ID;
+        mr.d1Codigo=d1Codigo;
+        mr.d2Salida=d2Salida;
+        mr.d3Carga=d3Carga;
+        mr.d4Vehiculo=d4Vehiculo;
+        mr.d5Motorista=d5Motorista;
+        mr.d6Kilometraje=d6Kilometraje;
+        mr.d7Destino=d7Destino;
+        mr.d8Llegada= d8Llegada;
+        mr.setLocationRelativeTo(null);
+        mr.setVisible(true);
+        this.dispose();
+
+    }//GEN-LAST:event_btnSeleccionarMouseClicked
+
     private void TablaCMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaCMouseClicked
         txtCodigo.setText(TablaC.getValueAt(TablaC.getSelectedRow(),0).toString());
         txtNombre.setText(TablaC.getValueAt(TablaC.getSelectedRow(),1).toString());
@@ -216,24 +235,6 @@ public class Seleccionar_Clientes extends javax.swing.JFrame {
         nc.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnAgregarMouseClicked
-
-    private void btnSeleccionarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSeleccionarMouseClicked
-        d1Codigo=txtCodigo.getText();
-        Revision_Rutas rv = new Revision_Rutas();
-        rv.d0ID=d0ID;
-        rv.d1Codigo=d1Codigo;
-        rv.d2Salida=d2Salida;
-        rv.d3Carga=d3Carga;
-        rv.d4Vehiculo=d4Vehiculo;
-        rv.d5Motorista=d5Motorista;
-        rv.d6Kilometraje=d6Kilometraje;
-        rv.d7Destino=d7Destino;
-        rv.d8Llegada= d8Llegada;
-        rv.setLocationRelativeTo(null);
-        rv.setVisible(true);
-        this.dispose();
-        
-    }//GEN-LAST:event_btnSeleccionarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -252,21 +253,20 @@ public class Seleccionar_Clientes extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Seleccionar_Clientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Admin_Seleccionar_Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Seleccionar_Clientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Admin_Seleccionar_Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Seleccionar_Clientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Admin_Seleccionar_Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Seleccionar_Clientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Admin_Seleccionar_Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Seleccionar_Clientes().setVisible(true);
+                new Admin_Seleccionar_Cliente().setVisible(true);
             }
         });
     }

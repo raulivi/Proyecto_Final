@@ -10,6 +10,16 @@ import javax.swing.JOptionPane;
 
 public class Mantenimiento_Rutas extends javax.swing.JFrame {
     
+    String d0ID="";
+    String d1Codigo="";
+    String d2Salida="";
+    String d3Carga="";
+    String d4Vehiculo="";
+    String d5Motorista="";
+    String d6Kilometraje="";
+    String d7Destino="";
+    String d8Llegada="";
+    
     String columns[]={"ID", "Codigo de Cliente", "Fecha de Salida", "Carga en Kg", "ID Vehiculo", "Motorista", "Kilometraje", "Destino", "Fecha de Llegada"};
     DefaultTableModel model=new DefaultTableModel(columns, 0);
     Database db = new Database();
@@ -83,12 +93,20 @@ public class Mantenimiento_Rutas extends javax.swing.JFrame {
         btnEliminar = new javax.swing.JButton();
         btnModificar = new javax.swing.JButton();
         btnInsertar = new javax.swing.JButton();
+        btnbuscaCliente = new javax.swing.JButton();
+        btnbuscavehiculo = new javax.swing.JButton();
+        btnbuscarmotorista = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuSalir = new javax.swing.JMenu();
         menuitemSalir = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 255));
 
@@ -146,6 +164,30 @@ public class Mantenimiento_Rutas extends javax.swing.JFrame {
         btnInsertar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnInsertarMouseClicked(evt);
+            }
+        });
+
+        btnbuscaCliente.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        btnbuscaCliente.setText("Buscar Cliente");
+        btnbuscaCliente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnbuscaClienteMouseClicked(evt);
+            }
+        });
+
+        btnbuscavehiculo.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        btnbuscavehiculo.setText("Buscar Vehiculo");
+        btnbuscavehiculo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnbuscavehiculoMouseClicked(evt);
+            }
+        });
+
+        btnbuscarmotorista.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        btnbuscarmotorista.setText("Buscar Motorista");
+        btnbuscarmotorista.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnbuscarmotoristaMouseClicked(evt);
             }
         });
 
@@ -213,7 +255,12 @@ public class Mantenimiento_Rutas extends javax.swing.JFrame {
                             .addComponent(txtllegada, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 48, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnbuscaCliente)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnbuscavehiculo)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnbuscarmotorista)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnInsertar)
                         .addGap(18, 18, 18)
                         .addComponent(btnModificar)
@@ -252,7 +299,10 @@ public class Mantenimiento_Rutas extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnInsertar)
                     .addComponent(btnModificar)
-                    .addComponent(btnEliminar))
+                    .addComponent(btnEliminar)
+                    .addComponent(btnbuscaCliente)
+                    .addComponent(btnbuscavehiculo)
+                    .addComponent(btnbuscarmotorista))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -371,6 +421,99 @@ public class Mantenimiento_Rutas extends javax.swing.JFrame {
         
     }//GEN-LAST:event_TablaRMouseClicked
 
+    private void btnbuscaClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbuscaClienteMouseClicked
+    escribir();
+    Admin_Seleccionar_Cliente sc = new Admin_Seleccionar_Cliente();
+    sc.d0ID=d0ID;
+    sc.d1Codigo=d1Codigo;
+    sc.d2Salida=d2Salida;
+    sc.d3Carga=d3Carga;
+    sc.d4Vehiculo=d4Vehiculo;
+    sc.d5Motorista=d5Motorista;
+    sc.d6Kilometraje=d6Kilometraje;
+    sc.d7Destino=d7Destino;
+    sc.d8Llegada= d8Llegada;
+    sc.setLocationRelativeTo(null);
+    sc.setVisible(true);
+    this.dispose();
+    }//GEN-LAST:event_btnbuscaClienteMouseClicked
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        if (d0ID!="") {
+            txtID.setText(d0ID);
+        }
+        if (d1Codigo!="") {
+            txtCodigo.setText(d1Codigo);
+        }
+        if (d2Salida!="") {
+            txtsalida.setText(d2Salida);
+        }
+        if (d3Carga!="") {
+            txtCarga.setText(d3Carga);
+        }
+        if (d4Vehiculo!="") {
+            txtvehiculo.setText(d4Vehiculo);
+        }
+        if (d5Motorista!="") {
+            txtmotorista.setText(d5Motorista);
+        }
+        if (d6Kilometraje!="") {
+            txtkilometraje.setText(d6Kilometraje);
+        }
+        if (d7Destino!="") {
+            txtdestino.setText(d7Destino);
+        }
+        if (d8Llegada !="") {
+            txtllegada.setText(d8Llegada);
+        }
+    }//GEN-LAST:event_formWindowOpened
+
+    private void btnbuscavehiculoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbuscavehiculoMouseClicked
+        escribir();
+        Admin_Selecciona_Vehiculo sv = new Admin_Selecciona_Vehiculo();
+        sv.d0ID=d0ID;
+        sv.d1Codigo=d1Codigo;
+        sv.d2Salida=d2Salida;
+        sv.d3Carga=d3Carga;
+        sv.d4Vehiculo=d4Vehiculo;
+        sv.d5Motorista=d5Motorista;
+        sv.d6Kilometraje=d6Kilometraje;
+        sv.d7Destino=d7Destino;
+        sv.d8Llegada= d8Llegada;
+        sv.setLocationRelativeTo(null);
+        sv.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnbuscavehiculoMouseClicked
+
+    private void btnbuscarmotoristaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnbuscarmotoristaMouseClicked
+        escribir();
+        Admin_Selecciona_Motorista sm = new Admin_Selecciona_Motorista();
+        sm.d0ID=d0ID;
+        sm.d1Codigo=d1Codigo;
+        sm.d2Salida=d2Salida;
+        sm.d3Carga=d3Carga;
+        sm.d4Vehiculo=d4Vehiculo;
+        sm.d5Motorista=d5Motorista;
+        sm.d6Kilometraje=d6Kilometraje;
+        sm.d7Destino=d7Destino;
+        sm.d8Llegada= d8Llegada;
+        sm.setLocationRelativeTo(null);
+        sm.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnbuscarmotoristaMouseClicked
+
+    public void escribir(){
+        d0ID=txtID.getText();
+        d1Codigo=txtCodigo.getText();
+        d2Salida= txtsalida.getText();
+        d3Carga=txtCarga.getText();
+        d4Vehiculo=txtvehiculo.getText();
+        d5Motorista=txtmotorista.getText();
+        d6Kilometraje=txtkilometraje.getText();
+        d7Destino=txtdestino.getText();
+        d8Llegada=txtllegada.getText(); 
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -411,6 +554,9 @@ public class Mantenimiento_Rutas extends javax.swing.JFrame {
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnInsertar;
     private javax.swing.JButton btnModificar;
+    private javax.swing.JButton btnbuscaCliente;
+    private javax.swing.JButton btnbuscarmotorista;
+    private javax.swing.JButton btnbuscavehiculo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
