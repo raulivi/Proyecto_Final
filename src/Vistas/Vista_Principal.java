@@ -1,6 +1,9 @@
 
 package Vistas;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
+
 public class Vista_Principal extends javax.swing.JFrame {
     
     public String sesion="";
@@ -17,6 +20,12 @@ public class Vista_Principal extends javax.swing.JFrame {
         this.lbSaludo.setText("Bienvenido "+this.nombre);
     }
     
+    public void centrar(){
+        Dimension pantalla = Toolkit.getDefaultToolkit().getScreenSize();
+        Dimension imagen = pimagen.getSize();
+        pimagen.setLocation(((pantalla.width/2)-(imagen.width/2)),((pantalla.height/2)-(imagen.height/2)));
+    }
+    
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -29,6 +38,7 @@ public class Vista_Principal extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         lbSaludo = new javax.swing.JLabel();
+        pimagen = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         menuMantenimiento = new javax.swing.JMenu();
@@ -52,7 +62,10 @@ public class Vista_Principal extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 255));
 
-        lbSaludo.setText("Bievenido ");
+        lbSaludo.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        lbSaludo.setText("Bienvenido ");
+
+        pimagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/Fondo.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -60,15 +73,19 @@ public class Vista_Principal extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(pimagen)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lbSaludo)
-                .addContainerGap(474, Short.MAX_VALUE))
+                .addContainerGap(749, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lbSaludo)
-                .addContainerGap(280, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbSaludo)
+                    .addComponent(pimagen))
+                .addContainerGap(308, Short.MAX_VALUE))
         );
 
         jMenu1.setText("Aplicaciones ");
@@ -95,6 +112,11 @@ public class Vista_Principal extends javax.swing.JFrame {
 
         mmtoCliente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Y, java.awt.event.InputEvent.CTRL_MASK));
         mmtoCliente.setText("Clientes");
+        mmtoCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mmtoClienteActionPerformed(evt);
+            }
+        });
         menuMantenimiento.add(mmtoCliente);
 
         jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_MASK));
@@ -153,6 +175,7 @@ public class Vista_Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        centrar();
         if (this.nombre.equals("")) {
         lbSaludo.setVisible(false);
         } else{
@@ -169,12 +192,22 @@ public class Vista_Principal extends javax.swing.JFrame {
         Mantenimiento_Usuarios mu = new Mantenimiento_Usuarios();
         mu.setLocationRelativeTo(null);
         mu.setVisible(true);
-        this. setEnabled(false);
+        this.setEnabled(false);
     }//GEN-LAST:event_mmtoUsuarioActionPerformed
 
     private void mmtoVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mmtoVehiculoActionPerformed
-        
+        Mantenimiento_Vehiculos mv = new Mantenimiento_Vehiculos();
+        mv.setLocationRelativeTo(null);
+        mv.setVisible(true);
+        this.setEnabled(false);
     }//GEN-LAST:event_mmtoVehiculoActionPerformed
+
+    private void mmtoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mmtoClienteActionPerformed
+        Mantenimiento_Clientes mc = new Mantenimiento_Clientes();
+        mc.setLocationRelativeTo(null);
+        mc.setVisible(true);
+        this.setEnabled(false);
+    }//GEN-LAST:event_mmtoClienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -225,5 +258,6 @@ public class Vista_Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem mmtoCliente;
     private javax.swing.JMenuItem mmtoUsuario;
     private javax.swing.JMenuItem mmtoVehiculo;
+    private javax.swing.JLabel pimagen;
     // End of variables declaration//GEN-END:variables
 }

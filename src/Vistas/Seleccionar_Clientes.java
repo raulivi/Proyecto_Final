@@ -4,13 +4,22 @@ package Vistas;
 import Clases.Cliente;
 import Clases.Database;
 import Clases.Operaciones;
-import java.awt.BorderLayout;
 import java.util.ArrayList;
 
 import javax.swing.table.DefaultTableModel;
 
 
 public class Seleccionar_Clientes extends javax.swing.JFrame {
+    String dato0="";
+    String dato1="";
+    String dato2="";
+    String dato3="";
+    String dato4="";
+    String dato5="";
+    String dato6="";
+    String dato7="";
+    String dato8="";
+    String dato9="";
 
     String columns[]={"Codigo", "Nombre", "ID", "Tipo de ID", "Telefono", "Direccion"};
     DefaultTableModel model=new DefaultTableModel(columns, 0);
@@ -91,6 +100,11 @@ public class Seleccionar_Clientes extends javax.swing.JFrame {
         jLabel4.setText("ID");
 
         btnSeleccionar.setText("Seleccionar y Volver");
+        btnSeleccionar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSeleccionarMouseClicked(evt);
+            }
+        });
 
         btnAgregar.setText("Agregar Cliente Nuevo");
         btnAgregar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -204,6 +218,10 @@ public class Seleccionar_Clientes extends javax.swing.JFrame {
         nc.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnAgregarMouseClicked
+
+    private void btnSeleccionarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSeleccionarMouseClicked
+        dato0=txtCodigo.getText();
+    }//GEN-LAST:event_btnSeleccionarMouseClicked
 
     /**
      * @param args the command line arguments
