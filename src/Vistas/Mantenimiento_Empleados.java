@@ -1,7 +1,6 @@
 
 package Vistas;
 
-import Clases.Cliente;
 import Clases.Database;
 import Clases.Empleado;
 import Clases.Operaciones;
@@ -102,6 +101,11 @@ public class Mantenimiento_Empleados extends javax.swing.JFrame {
         menuitemSalir = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 255));
 
@@ -387,19 +391,26 @@ public class Mantenimiento_Empleados extends javax.swing.JFrame {
     }//GEN-LAST:event_menuitemSalirActionPerformed
 
     private void btnInsertarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInsertarMouseClicked
-        /*cli.setCodigo(Integer.parseInt(txtCodigo.getText()));
-        cli.setNombre(txtNombre.getText());
-        cli.setId(txtID.getText());
-        cli.setTipoId(cbTipo.getSelectedItem().toString());
-        cli.setTelefono(txtTelefono.getText());
-        cli.setDireccion(txtDireccion.getText());
-        if (op.insertar(cli, "cliente")) {
+        emp.setCodigo(Integer.parseInt(txtCodigo.getText())); 
+        emp.setNombre(txtNombre.getText());
+        emp.setApellido(txtApellido.getText());
+        emp.setDui(txtDui.getText());
+        emp.setLicencia(txtLicencia.getText());
+        emp.setFechaIngreso(txtIngreso.getText());
+        emp.setEstadoCivil(cbEstCivil.getSelectedItem().toString());
+        emp.setSalarioBase(Double.parseDouble(txtsalarioB.getText()));
+        emp.setIsss();
+        emp.setAfp();
+        emp.setRenta();
+        emp.setSalarioNeto();
+        emp.setCargo(txtCargo.getText());
+        if (op.insertar(emp, "empleado")) {
             JOptionPane.showMessageDialog(this, "Insertado con Exito", "Informacion", JOptionPane.INFORMATION_MESSAGE);
             cargar();
             limpiar();
         }else{
             JOptionPane.showMessageDialog(this, "Error", "Informacion", JOptionPane.ERROR_MESSAGE);
-        }*/
+        }
     }//GEN-LAST:event_btnInsertarMouseClicked
 
     private void btnModificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModificarMouseClicked
@@ -444,7 +455,7 @@ public class Mantenimiento_Empleados extends javax.swing.JFrame {
         txtDui.setText(TablaE.getValueAt(TablaE.getSelectedRow(), 3).toString());
         txtLicencia.setText(TablaE.getValueAt(TablaE.getSelectedRow(), 4).toString());
         txtIngreso.setText(TablaE.getValueAt(TablaE.getSelectedRow(), 5).toString());
-        cbEstCivil.setSelectedIndex(0);
+        cbEstCivil.setSelectedItem(TablaE.getValueAt(TablaE.getSelectedRow(), 6).toString());
         txtsalarioB.setText(TablaE.getValueAt(TablaE.getSelectedRow(), 7).toString());
         txtisss.setText(TablaE.getValueAt(TablaE.getSelectedRow(), 8).toString());
         txtafp.setText(TablaE.getValueAt(TablaE.getSelectedRow(), 9).toString());
@@ -452,6 +463,13 @@ public class Mantenimiento_Empleados extends javax.swing.JFrame {
         txtliquido.setText(TablaE.getValueAt(TablaE.getSelectedRow(), 11).toString());
         txtCargo.setText(TablaE.getValueAt(TablaE.getSelectedRow(), 12).toString());
     }//GEN-LAST:event_TablaEMouseClicked
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        txtisss.setEditable(false);
+        txtafp.setEditable(false);
+        txtrenta.setEditable(false);
+        txtliquido.setEditable(false);
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments
