@@ -8,6 +8,17 @@ import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
 public class Seleccionar_Motoristas extends javax.swing.JFrame {
+    
+    String dato0="";
+    String dato1="";
+    String dato2="";
+    String dato3="";
+    String dato4="";
+    String dato5="";
+    String dato6="";
+    String dato7="";
+    String dato8="";
+    String dato9="";
 
     String columns[]={"Codigo", "Nombre", "Apellido", "DUI", "Cargo"};
     DefaultTableModel model=new DefaultTableModel(columns, 0);

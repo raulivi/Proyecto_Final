@@ -109,8 +109,11 @@ public class Operaciones {
                         + "codigo ="+u.getCodigoEmpleado();
             break;
             case "rutas":
-                //Users u= (Users) obj;
-                //sql="insert into users values("+u.getId()+",'"+u.getUsername()+"','"+u.getPasss()+"',"+u.getNivel()+")";
+                Ruta r = (Ruta) obj;
+                sql="UPDATE rutas SET codigo_cliente = "+r.getCodigoCliente()+", fecha_salida = '"+r.getFechaSalida()+"', "
+                        + "carga_estimada_Kg = "+r.getCargaEstimada()+", id_vehiculo = "+r.getIdVehiculo()+", "
+                        + "codigo_motorista = "+r.getCodigoMotorista()+", kilometraje = "+r.getKilometraje()+", "
+                        + "destino = '"+r.getDestino()+"', fecha_llegada = '"+r.getFechaLlegada()+"' WHERE id ="+r.getId();
             break;
             case "vehiculo":
                 Vehiculo v =(Vehiculo) obj;
