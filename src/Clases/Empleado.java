@@ -52,7 +52,8 @@ public class Empleado {
         } else if (salario>=2038.11 ) {
             vrenta=salario*0.3;
         }
-        this.renta = vrenta;
+        double rentaR= Math.rint(vrenta*100)/100;
+        this.renta = rentaR;
     }
 
     public int getCodigo() {
@@ -92,6 +93,9 @@ public class Empleado {
     }
 
     public void setLicencia(String licencia) {
+        if (licencia.isEmpty()) {
+            licencia=" ";
+        }
         this.licencia = licencia;
     }
 
@@ -118,7 +122,8 @@ public class Empleado {
     public void setIsss() {
         double salario=this.salarioBase;
         double visss = salario*0.03;
-        this.isss = visss;
+        double isssR= Math.rint(visss*100)/100;
+        this.isss = isssR;
     }
 
     public double getAfp() {
@@ -128,7 +133,8 @@ public class Empleado {
     public void setAfp() {
         double salario=this.salarioBase;
         double vafp=salario*0.07;
-        this.afp = vafp;
+        double afpR= Math.rint(vafp*100)/100;
+        this.afp = afpR;
     }
 
     public double getSalarioNeto() {

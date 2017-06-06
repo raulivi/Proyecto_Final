@@ -101,6 +101,7 @@ public class Mantenimiento_Empleados extends javax.swing.JFrame {
         menuitemSalir = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -205,18 +206,19 @@ public class Mantenimiento_Empleados extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13)
-                    .addComponent(txtliquido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtisss, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel10))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel11)
+                        .addComponent(txtafp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txtrenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel12)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel11)
-                            .addComponent(txtafp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(txtisss, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel10)))))
+                        .addComponent(jLabel12))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel13)
+                        .addComponent(txtliquido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -344,8 +346,6 @@ public class Mantenimiento_Empleados extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jLabel7.getAccessibleContext().setAccessibleName("Estado Civil");
-
         menuSalir.setText("Salir");
 
         menuitemSalir.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_W, java.awt.event.InputEvent.CTRL_MASK));
@@ -414,14 +414,21 @@ public class Mantenimiento_Empleados extends javax.swing.JFrame {
     }//GEN-LAST:event_btnInsertarMouseClicked
 
     private void btnModificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModificarMouseClicked
-        /*cli.setCodigo(Integer.parseInt(txtCodigo.getText()));
-        cli.setNombre(txtNombre.getText());
-        cli.setId(txtID.getText());
-        cli.setTipoId(cbTipo.getSelectedItem().toString());
-        cli.setTelefono(txtTelefono.getText());
-        cli.setDireccion(txtDireccion.getText());
+        emp.setCodigo(Integer.parseInt(txtCodigo.getText())); 
+        emp.setNombre(txtNombre.getText());
+        emp.setApellido(txtApellido.getText());
+        emp.setDui(txtDui.getText());
+        emp.setLicencia(txtLicencia.getText());
+        emp.setFechaIngreso(txtIngreso.getText());
+        emp.setEstadoCivil(cbEstCivil.getSelectedItem().toString());
+        emp.setSalarioBase(Double.parseDouble(txtsalarioB.getText()));
+        emp.setIsss();
+        emp.setAfp();
+        emp.setRenta();
+        emp.setSalarioNeto();
+        emp.setCargo(txtCargo.getText());
         try {
-            if (op.modificar(cli, "cliente")) {
+            if (op.modificar(emp, "empleado")) {
                 JOptionPane.showMessageDialog(this, "Modificado con Exito", "Informacion", JOptionPane.INFORMATION_MESSAGE);
                 cargar();
                 limpiar();
@@ -430,7 +437,7 @@ public class Mantenimiento_Empleados extends javax.swing.JFrame {
             }
         } catch (ClassNotFoundException ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage());
-        }*/
+        }
     }//GEN-LAST:event_btnModificarMouseClicked
 
     private void btnEliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarMouseClicked
