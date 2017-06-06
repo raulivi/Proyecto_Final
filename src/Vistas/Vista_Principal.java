@@ -112,6 +112,11 @@ public class Vista_Principal extends javax.swing.JFrame {
 
         jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_3, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItem4.setText("Rutas");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
         menuMantenimiento.add(jMenuItem4);
 
         mmtoUsuario.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_4, java.awt.event.InputEvent.CTRL_MASK));
@@ -220,6 +225,13 @@ public class Vista_Principal extends javax.swing.JFrame {
         me.setVisible(true);
         this.setEnabled(false);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        Mantenimiento_Rutas mr = new Mantenimiento_Rutas();
+        mr.setLocationRelativeTo(null);
+        mr.setVisible(true);
+        this.setEnabled(false);
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     /**
      * @param args the command line arguments

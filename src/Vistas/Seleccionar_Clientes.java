@@ -10,16 +10,15 @@ import javax.swing.table.DefaultTableModel;
 
 
 public class Seleccionar_Clientes extends javax.swing.JFrame {
-    String dato0="";
-    String dato1="";
-    String dato2="";
-    String dato3="";
-    String dato4="";
-    String dato5="";
-    String dato6="";
-    String dato7="";
-    String dato8="";
-    String dato9="";
+    String d0ID="";
+    String d1Codigo="";
+    String d2Salida="";
+    String d3Carga="";
+    String d4Vehiculo="";
+    String d5Motorista="";
+    String d6Kilometraje="";
+    String d7Destino="";
+    String d8Llegada="";
 
     String columns[]={"Codigo", "Nombre", "ID", "Tipo de ID", "Telefono", "Direccion"};
     DefaultTableModel model=new DefaultTableModel(columns, 0);
@@ -220,7 +219,7 @@ public class Seleccionar_Clientes extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAgregarMouseClicked
 
     private void btnSeleccionarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSeleccionarMouseClicked
-        dato0=txtCodigo.getText();
+        d0ID=txtCodigo.getText();
     }//GEN-LAST:event_btnSeleccionarMouseClicked
 
     /**
