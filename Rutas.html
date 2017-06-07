@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html><!--//api profe AIzaSyB2hVqLpFFkEUzTSOkn7IYEudjZ4qFKPFE-->
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Ruta Detallada</title>
+    <style>
+      #map 
+      {
+        height: 100%;
+      }
+
+      html, body 
+      {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      #floating-panel 
+      {
+        position: absolute;
+        top: 10px;
+        z-index: 5;
+        background-color: SandyBrown;
+        padding: 5px;
+        border: 1px solid #999;
+        text-align: center;
+        font-family: 'Roboto','sans-serif';
+        line-height: 30px;
+        padding-left: 10px;
+      } 
+
+      
+    </style>
+  </head>
+  <body>
+    <div id="floating-panel">
+    <b>Ver Ruta: </b>
+    <select id="end">
+    <option disabled selected>Seleccione</option>
+      <option value="13.783356, -89.214966">Ruta 0</option>
+      <option value="13.828062, -90.263777">Ruta 1</option>
+      <option value="13.343002, -88.432195">Ruta 2</option>
+      <option value="14.185084, -89.228049">Ruta 3</option>
+      <option value="Aeropuerto Internacional de El Salvador">Aeropuerto Internacional de El Salvador</option>
+      <option value="amarillo, tx">Amarillo</option>
+      <option value="13.575953, -89.8332273">Puerto de Acajutla</option>
+      <option value="Canal de Panamá, Panamá">Aduana del Canal de Panamá</option>
+      <option value="Puerto de Acajutla">Winona</option>
+      <option value="kingman, az">Kingman</option>
+      <option value="barstow, ca">Barstow</option>
+      <option value="Guatemala, Guatemala">Guatemala</option>
+      <option value="los angeles, ca">Los Angeles</option>
+    </select>
+    </div>
+    <div id="map"></div>
+    <script>
+      function initMap() 
+      {
+        var directionsService = new google.maps.DirectionsService;
+        var directionsDisplay = new google.maps.DirectionsRenderer;
+        var map = new google.maps.Map(document.getElementById('map'), 
+        {
+          zoom: 12,  // sera 10-13
+          center: {lat: 13.7310565, lng: -89.1510451} 
+        });
+        directionsDisplay.setMap(map);
+        var onChangeHandler = function() 
+        { 
+          calculateAndDisplayRoute(directionsService, directionsDisplay);
+        };
+        document.getElementById('end').addEventListener('change', onChangeHandler);
+      }
+
+      function calculateAndDisplayRoute(directionsService, directionsDisplay) 
+      {
+        directionsService.route(
+        {
+          origin: '13.673942,-89.250368',
+          destination: document.getElementById('end').value,
+          travelMode: 'DRIVING'
+        },
+        function(response, status) 
+        {
+          if (status === 'OK') 
+          {
+            directionsDisplay.setDirections(response);
+          } else 
+          {
+            window.alert('Directions request failed due to ' + status);
+          }
+        });
+      }
+    </script>
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2hVqLpFFkEUzTSOkn7IYEudjZ4qFKPFE&callback=initMap">
+    </script>
+  </body>
+</html>
+

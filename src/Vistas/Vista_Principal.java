@@ -3,6 +3,8 @@ package Vistas;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperReport;
 
 
 public class Vista_Principal extends javax.swing.JFrame {
@@ -51,6 +53,11 @@ public class Vista_Principal extends javax.swing.JFrame {
         mmtoUsuario = new javax.swing.JMenuItem();
         mmtoVehiculo = new javax.swing.JMenuItem();
         menurevision = new javax.swing.JMenuItem();
+        menureport = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItem7 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
 
@@ -153,6 +160,36 @@ public class Vista_Principal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
+        menureport.setText("Reportes");
+
+        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_J, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem2.setText("Reporte de Kilometrje");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        menureport.add(jMenuItem2);
+
+        jMenuItem5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_K, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem5.setText("Reporte de Rutas");
+        menureport.add(jMenuItem5);
+
+        jMenuItem6.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem6.setText("Reporte de Cargas");
+        menureport.add(jMenuItem6);
+
+        jMenuItem7.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_M, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem7.setText("Mapa de Rutas");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
+        menureport.add(jMenuItem7);
+
+        jMenuBar1.add(menureport);
+
         jMenu2.setText("Salir");
 
         jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_W, java.awt.event.InputEvent.CTRL_MASK));
@@ -250,6 +287,17 @@ public class Vista_Principal extends javax.swing.JFrame {
         this.setEnabled(false);
     }//GEN-LAST:event_menurevisionActionPerformed
 
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        try {
+            
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+        Mapa ma = new Mapa();                
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -290,11 +338,16 @@ public class Vista_Principal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbSaludo;
     private javax.swing.JMenu menuMantenimiento;
+    private javax.swing.JMenu menureport;
     private javax.swing.JMenuItem menurevision;
     private javax.swing.JMenuItem mmtoCliente;
     private javax.swing.JMenuItem mmtoUsuario;
