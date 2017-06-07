@@ -1,8 +1,3 @@
-/*JFrame principal = new JFrame(....);
-...
-JDialog secundario = new JDialog (principal, true);  // el true para que sea modal
-secundario.setVisible(true); // Listo, JFrame queda bloqueado hasta que cierres JDialog.
- */
 
 package Vistas;
 
