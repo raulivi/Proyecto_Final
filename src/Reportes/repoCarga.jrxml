@@ -39,7 +39,7 @@ FROM
 				<staticText>
 					<reportElement x="20" y="63" width="414" height="20" forecolor="#FFFFFF" uuid="07ffa4b0-31ed-4922-9139-fe5d9481bd66"/>
 					<textElement textAlignment="Center">
-						<font size="14" isBold="false"/>
+						<font size="14" isBold="true"/>
 					</textElement>
 					<text><![CDATA[Reporte de Cargas por Cliente]]></text>
 				</staticText>
