@@ -295,7 +295,8 @@ public class Vista_Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
-        Mapa ma = new Mapa();                
+        Mapa ma = new Mapa();    
+        this. setEnabled(false);
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     /**

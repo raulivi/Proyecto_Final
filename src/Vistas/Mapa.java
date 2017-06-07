@@ -28,11 +28,11 @@ public class Mapa extends javax.swing.JFrame {
  
         
         JPanel addressPane = new JPanel(new BorderLayout());
-        addressPane.add(new JLabel(" URL: "), BorderLayout.WEST); //aparece el rotulo URL y luego la barra
-        addressPane.add(addressBar, BorderLayout.CENTER);  //aparece la barra de direccion
+        //addressPane.add(new JLabel(" URL: "), BorderLayout.WEST); //aparece el rotulo URL y luego la barra
+        //addressPane.add(addressBar, BorderLayout.CENTER);  //aparece la barra de direccion
  
         JFrame frame = new JFrame("Detalle de Ruta "); //titulo de la ventana
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        //frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.add(addressPane, BorderLayout.NORTH);
         frame.add(view, BorderLayout.CENTER);
         frame.setSize(800, 500);
@@ -50,8 +50,6 @@ public class Mapa extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
