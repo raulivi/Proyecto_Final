@@ -7,12 +7,10 @@ public class Integrantes {
     String Carnet1="350516";
     String Integrante2="Adali Antonia Rendón Vásquez";
     String Carnet2="131816";
-    String Integrante3="";
-    String Carnet3="";
-    String Integrante4="Rosa Elena Salomón Méndez ";
-    String Carnet4="372816";
-    String Integrante5="Jose Raul Escalante Aparicio";
-    String Carnet5="389216";
-    String Integrante6="Rodrigo Andre Jovel Aguilar";
-    String Carnet6="051815";
+    String Integrante3="Rosa Elena Salomón Méndez ";
+    String Carnet3="372816";
+    String Integrante4="Jose Raul Escalante Aparicio";
+    String Carnet4="389216";
+    String Integrante5="Rodrigo Andre Jovel Aguilar";
+    String Carnet5="051815";
 }
