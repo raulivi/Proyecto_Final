@@ -13,4 +13,6 @@ public class Integrantes {
     String Carnet4="372816";
     String Integrante5="Jose Raul Escalante Aparicio";
     String Carnet5="389216";
+    String Integrante6="Rodrigo Andre Jovel Aguilar";
+    String Carnet6="051815";
 }
