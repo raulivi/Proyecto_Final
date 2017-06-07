@@ -1,38 +1,49 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Vistas;
 
 import com.teamdev.jxbrowser.chromium.Browser;
 import com.teamdev.jxbrowser.chromium.swing.BrowserView;
-import javax.swing.*;
-import java.awt.*;
+import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.WindowConstants;
 
+/**
+ *
+ * @author Raul
+ */
 public class Mapa extends javax.swing.JFrame {
 
     /**
-     * Creates new form Mapa 
+     * Creates new form Mapa
      */
     public Mapa() {
         initComponents();
+        
         final Browser browser = new Browser(); //clase crowser
         BrowserView view = new BrowserView(browser);
  
-        final JTextField addressBar = new JTextField("file:///C:/Users/Raul/Documents/NetBeansProjects/Proyecto_Final/Rutas.html"); 
+        final JTextField addressBar = new JTextField("C:/Users/Raul/Documents/NetBeansProjects/Proyecto_Final/Rutas.html"); 
         addressBar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 browser.loadURL(addressBar.getText());
             }
         });
- 
         
         JPanel addressPane = new JPanel(new BorderLayout());
         //addressPane.add(new JLabel(" URL: "), BorderLayout.WEST); //aparece el rotulo URL y luego la barra
         //addressPane.add(addressBar, BorderLayout.CENTER);  //aparece la barra de direccion
- 
+        
         JFrame frame = new JFrame("Detalle de Ruta "); //titulo de la ventana
-        //frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         frame.add(addressPane, BorderLayout.NORTH);
         frame.add(view, BorderLayout.CENTER);
         frame.setSize(800, 500);
@@ -40,6 +51,7 @@ public class Mapa extends javax.swing.JFrame {
         frame.setVisible(true);
  
         browser.loadURL(addressBar.getText());//cargar lo que esta en la barra
+        
     }
 
     /**
@@ -51,15 +63,17 @@ public class Mapa extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 89, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 63, Short.MAX_VALUE)
         );
 
         pack();

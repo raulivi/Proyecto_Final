@@ -1,10 +1,9 @@
 
 package Vistas;
 
+
 import java.awt.Dimension;
 import java.awt.Toolkit;
-import net.sf.jasperreports.engine.JasperCompileManager;
-import net.sf.jasperreports.engine.JasperReport;
 
 
 public class Vista_Principal extends javax.swing.JFrame {
@@ -295,8 +294,10 @@ public class Vista_Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
-        Mapa ma = new Mapa();    
-        this. setEnabled(false);
+
+       Mapa mapa = new Mapa();
+       
+        
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     /**
