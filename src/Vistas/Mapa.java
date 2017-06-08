@@ -27,7 +27,7 @@ public class Mapa extends javax.swing.JFrame {
     public Mapa() {
         initComponents();
         
-        String direccion="C:/Users/Raul/Documents../NetBeansProjects/Proyecto_Final/Rutas.html";
+        String direccion=System.getProperty("user.dir")+System.getProperty("file.separator")+"Rutas.html";
         
         final Browser browser = new Browser(); //clase crowser
         BrowserView view = new BrowserView(browser);
@@ -42,7 +42,7 @@ public class Mapa extends javax.swing.JFrame {
         
         JPanel addressPane = new JPanel(new BorderLayout());
         //addressPane.add(new JLabel(" URL: "), BorderLayout.WEST); //aparece el rotulo URL y luego la barra
-        addressPane.add(addressBar, BorderLayout.CENTER);  //aparece la barra de direccion
+        //addressPane.add(addressBar, BorderLayout.CENTER);  //aparece la barra de direccion
         
         JFrame frame = new JFrame("Detalle de Ruta "); //titulo de la ventana
         frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
