@@ -2,11 +2,10 @@
 package Vistas;
 
 
-import Clases.Database;
+import Reportes.Mostrar_Reporte;
 import java.awt.Dimension;
 import java.awt.Toolkit;
-import javax.swing.JDialog;
-import javax.swing.JFrame;
+
 
 public class Vista_Principal extends javax.swing.JFrame {
     
@@ -56,6 +55,7 @@ public class Vista_Principal extends javax.swing.JFrame {
         menurevision = new javax.swing.JMenuItem();
         menureport = new javax.swing.JMenu();
         menuMapa = new javax.swing.JMenuItem();
+        menuReporte = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
 
@@ -169,6 +169,15 @@ public class Vista_Principal extends javax.swing.JFrame {
         });
         menureport.add(menuMapa);
 
+        menuReporte.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
+        menuReporte.setText("Reportes");
+        menuReporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuReporteActionPerformed(evt);
+            }
+        });
+        menureport.add(menuReporte);
+
         jMenuBar1.add(menureport);
 
         jMenu2.setText("Salir");
@@ -272,6 +281,14 @@ public class Vista_Principal extends javax.swing.JFrame {
         Mapa mapa = new Mapa();//asi
     }//GEN-LAST:event_menuMapaActionPerformed
 
+    private void menuReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuReporteActionPerformed
+        Mostrar_Reporte mr = new Mostrar_Reporte();
+        mr.sesion=sesion;
+        mr.setLocationRelativeTo(null);
+        mr.setVisible(true);
+        this.setEnabled(false);
+    }//GEN-LAST:event_menuReporteActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -318,6 +335,7 @@ public class Vista_Principal extends javax.swing.JFrame {
     private javax.swing.JLabel lbSaludo;
     private javax.swing.JMenu menuMantenimiento;
     private javax.swing.JMenuItem menuMapa;
+    private javax.swing.JMenuItem menuReporte;
     private javax.swing.JMenu menureport;
     private javax.swing.JMenuItem menurevision;
     private javax.swing.JMenuItem mmtoCliente;

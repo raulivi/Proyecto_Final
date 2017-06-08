@@ -39,7 +39,9 @@ public class Database {
     public Connection conectar(){
         try {
             Class.forName(Driver);
-            con = DriverManager.getConnection(Url);
+            con=DriverManager.getConnection(Url,Usuario,Contraseña);
+            //Class.forName(Driver);
+            //con = DriverManager.getConnection(Url);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
