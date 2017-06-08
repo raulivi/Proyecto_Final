@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html><!--//api profe AIzaSyB2hVqLpFFkEUzTSOkn7IYEudjZ4qFKPFE-->
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Ruta Detallada</title>
+    <style>
+      #map 
+      {
+        height: 100%;
+      }
+
+      html, body 
+      {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      #floating-panel 
+      {
+        position: absolute;
+        top: 10px;
+        z-index: 5;
+        background-color: SandyBrown;
+        padding: 5px;
+        border: 1px solid #999;
+        text-align: center;
+        font-family: 'Roboto','sans-serif';
+        line-height: 30px;
+        padding-left: 10px;
+      } 
+
+      
+    </style>
+  </head>
+  <body>
+    <div id="floating-panel">
+    <b>Ver Ruta: </b>
+    <select id="end">
+    <option disabled selected>Seleccione</option>
+      X<option value="13.672917, -89.280102">Ubicacion de la Empresa</option>
+      X<option value="Miami Beach, Florida, EE. UU.">Puerto Miami Beach, Florida, Usa</option>
+      X<option value="Galveston, Texas, EE. UU.">Puerto Galveston, Texas, USA</option>
+      X<option value="Terminal Island">Los Ángeles, California, USA</option>
+      X<option value="Aeropuerto Internacional de El Salvador">Aeropuerto Internacional de El Salvador</option>OK
+      X<option value="Aeropuerto Internacional de la Ciudad de México">Aeropuerto Internacional México</option>
+      X<option value="Puerto Quetzal, Guatemala">Puerto Quetzal, Guatemala</option>
+      X<option value="Canal de Panamá, Panamá">Aduana del Canal de Panamá, Panamá</option>
+      X<option value="Puerto de Acajutla, Acajutla">Puerto de Acajutla, El Salvador</option>OK
+      X<option value="PYMEXPORTA, Yucatan, México">Aduana Pymexporta Yucatan, México</option>
+      X<option value="Puerto Cortés, Honduras">Puerto Cortés, Honduras</option>
+      X<option value="Guatemala, Guatemala">Aduana Ciudad de Guatemala</option>
+      X<option value="Aeropuerto Internacional Toncotin, Honduras">Aeropuerto Internacional de Honduras</option>
+    </select>
+    </div>
+    <div id="map"></div>
+    <script>
+      function initMap() 
+      {
+        var directionsService = new google.maps.DirectionsService;
+        var directionsDisplay = new google.maps.DirectionsRenderer;
+        var map = new google.maps.Map(document.getElementById('map'), 
+        {
+          zoom: 12,  // sera 10-13
+          center: {lat: 13.7310565, lng: -89.1510451} 
+        });
+        directionsDisplay.setMap(map);
+        var onChangeHandler = function() 
+        { 
+          calculateAndDisplayRoute(directionsService, directionsDisplay);
+        };
+        document.getElementById('end').addEventListener('change', onChangeHandler);
+      }
+
+      function calculateAndDisplayRoute(directionsService, directionsDisplay) 
+      {
+        directionsService.route(
+        {
+          origin: '13.672917,-89.280102',
+          destination: document.getElementById('end').value,
+          travelMode: 'DRIVING'
+        },
+        function(response, status) 
+        {
+          if (status === 'OK') 
+          {
+            directionsDisplay.setDirections(response);
+          } else 
+          {
+            window.alert('Directions request failed due to ' + status);
+          }
+        });
+      }
+    </script>
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2hVqLpFFkEUzTSOkn7IYEudjZ4qFKPFE&callback=initMap">
+    </script>
+  </body>
+</html>
+
