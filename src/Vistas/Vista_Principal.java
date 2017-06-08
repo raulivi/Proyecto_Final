@@ -7,16 +7,11 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import net.sf.jasperreports.view.JRViewer;
-import net.sf.jasperreports.engine.*;
 
 public class Vista_Principal extends javax.swing.JFrame {
     
     public String sesion="";
     public String nombre="";
-    Database db = new Database(); //new
-    JDialog vista = new JDialog(new JFrame(), "Reporte", true); //new
     
     
 
@@ -60,9 +55,6 @@ public class Vista_Principal extends javax.swing.JFrame {
         mmtoVehiculo = new javax.swing.JMenuItem();
         menurevision = new javax.swing.JMenuItem();
         menureport = new javax.swing.JMenu();
-        repoKilo = new javax.swing.JMenuItem();
-        repoRuta = new javax.swing.JMenuItem();
-        repoCarga = new javax.swing.JMenuItem();
         menuMapa = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -167,28 +159,6 @@ public class Vista_Principal extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         menureport.setText("Reportes");
-        menureport.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menureportActionPerformed(evt);
-            }
-        });
-
-        repoKilo.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_J, java.awt.event.InputEvent.CTRL_MASK));
-        repoKilo.setText("Reporte de Kilometrje");
-        repoKilo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                repoKiloActionPerformed(evt);
-            }
-        });
-        menureport.add(repoKilo);
-
-        repoRuta.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_K, java.awt.event.InputEvent.CTRL_MASK));
-        repoRuta.setText("Reporte de Rutas");
-        menureport.add(repoRuta);
-
-        repoCarga.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
-        repoCarga.setText("Reporte de Cargas");
-        menureport.add(repoCarga);
 
         menuMapa.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_M, java.awt.event.InputEvent.CTRL_MASK));
         menuMapa.setText("Mapa de Rutas");
@@ -298,29 +268,9 @@ public class Vista_Principal extends javax.swing.JFrame {
         this.setEnabled(false);
     }//GEN-LAST:event_menurevisionActionPerformed
 
-    private void repoKiloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_repoKiloActionPerformed
-       try {  //no se
-           String sesion ="C:\\Users\\Raul\\Documents\\NetBeansProjects\\Proyecto_Final\\src\\Reportes\\repKilo.jasper";
-            JasperReport reporte = JasperCompileManager.compileReport(sesion);
-            JasperPrint jp = JasperFillManager.fillReport(reporte, null,db.conectar());
-            
-            vista.setSize(1000,700);
-            vista.setLocationRelativeTo(null);
-            JRViewer jrv = new JRViewer(jp);
-            vista.getContentPane().add(jrv);
-            vista.setVisible(true);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
-    }//GEN-LAST:event_repoKiloActionPerformed
-
     private void menuMapaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuMapaActionPerformed
-       Mapa mapa = new Mapa();//asi        
+        Mapa mapa = new Mapa();//asi
     }//GEN-LAST:event_menuMapaActionPerformed
-
-    private void menureportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menureportActionPerformed
-        
-    }//GEN-LAST:event_menureportActionPerformed
 
     /**
      * @param args the command line arguments
@@ -374,8 +324,5 @@ public class Vista_Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem mmtoUsuario;
     private javax.swing.JMenuItem mmtoVehiculo;
     private javax.swing.JLabel pimagen;
-    private javax.swing.JMenuItem repoCarga;
-    private javax.swing.JMenuItem repoKilo;
-    private javax.swing.JMenuItem repoRuta;
     // End of variables declaration//GEN-END:variables
 }
