@@ -137,8 +137,9 @@ public class Mostrar_Reporte extends javax.swing.JFrame {
     }//GEN-LAST:event_menuitemSalirActionPerformed
 
     private void btnKiloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKiloActionPerformed
+        String direccion=System.getProperty("user.dir")+System.getProperty("file.separator")+"src"+System.getProperty("file.separator")+"Reportes"+System.getProperty("file.separator")+"repKilo.jrxml";
         try {  //no se
-            JasperReport reporte = JasperCompileManager.compileReport("repKilo.jrxml");
+            JasperReport reporte = JasperCompileManager.compileReport(direccion);
             JasperPrint jp = JasperFillManager.fillReport(reporte, null,db.conectar());
             viewer.setSize(1000,700);
             viewer.setLocationRelativeTo(null);
@@ -151,8 +152,9 @@ public class Mostrar_Reporte extends javax.swing.JFrame {
     }//GEN-LAST:event_btnKiloActionPerformed
 
     private void btnRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRutaActionPerformed
+        String direccion=System.getProperty("user.dir")+System.getProperty("file.separator")+"src"+System.getProperty("file.separator")+"Reportes"+System.getProperty("file.separator")+"repoRuta.jrxml";
         try {  //no se
-            JasperReport reporte = JasperCompileManager.compileReport("repRuta.jrxml");
+            JasperReport reporte = JasperCompileManager.compileReport(direccion);
             JasperPrint jp = JasperFillManager.fillReport(reporte, null,db.conectar());
             viewer.setSize(1000,700);
             viewer.setLocationRelativeTo(null);
@@ -165,8 +167,9 @@ public class Mostrar_Reporte extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRutaActionPerformed
 
     private void btnCargaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargaActionPerformed
+        String direccion=System.getProperty("user.dir")+System.getProperty("file.separator")+"src"+System.getProperty("file.separator")+"Reportes"+System.getProperty("file.separator")+"repoCarga.jrxml";
         try {  //no se
-            JasperReport reporte = JasperCompileManager.compileReport("repCarga.jrxml");
+            JasperReport reporte = JasperCompileManager.compileReport(direccion);
             JasperPrint jp = JasperFillManager.fillReport(reporte, null,db.conectar());
             viewer.setSize(1000,700);
             viewer.setLocationRelativeTo(null);
